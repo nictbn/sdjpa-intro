@@ -1,4 +1,7 @@
 # Spring Data JPA - Introduction to Spring Data JPA
+Build statusȘ
+
+[![CircleCI](https://circleci.com/gh/nictbn/sdjpa-intro/tree/master.svg?style=svg)](https://circleci.com/gh/nictbn/sdjpa-intro/tree/master)
 
 This repository contains source code examples to support my course Spring Data JPA and Hibernate Beginner to Guru
 
