@@ -2,11 +2,13 @@ package guru.springframework.sdjpaintro.bootstrap;
 
 import guru.springframework.sdjpaintro.domain.Book;
 import guru.springframework.sdjpaintro.repositories.BookRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 @Component
+@Slf4j
 public class DataInitializer implements CommandLineRunner {
 
     private final BookRepository bookRepository;
@@ -18,6 +20,15 @@ public class DataInitializer implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
+        Long count = bookRepository.count();
+
+        if (count > 0) {
+            log.debug("Database already initialized, skipping initialization");
+            return;
+        }
+
+        log.debug("Initializing database");
+
         Book bookDDD = new Book("Domain Driven Design", "123", "RandomHouse");
 
         System.out.println("Id: " + bookDDD.getId());
