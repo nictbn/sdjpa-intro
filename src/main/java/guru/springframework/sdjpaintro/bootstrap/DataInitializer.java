@@ -22,7 +22,7 @@ public class DataInitializer implements CommandLineRunner {
     public void run(String... args) throws Exception {
         bookRepository.deleteAll();
 
-        Book bookDDD = new Book("Domain Driven Design", "123", "RandomHouse");
+        Book bookDDD = new Book("Domain Driven Design", "123", "RandomHouse", null);
 
         System.out.println("Id: " + bookDDD.getId());
 
@@ -30,7 +30,7 @@ public class DataInitializer implements CommandLineRunner {
 
         System.out.println("Id: " + savedDDD.getId());
 
-        Book bookSIA = new Book("Spring In Action", "234235", "O'Reily");
+        Book bookSIA = new Book("Spring In Action", "234235", "O'Reily", null);
         Book savedSIA = bookRepository.save(bookSIA);
 
         bookRepository.findAll().forEach(book -> {
