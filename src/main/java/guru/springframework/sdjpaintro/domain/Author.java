@@ -8,26 +8,23 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import java.util.Objects;
 
 @NoArgsConstructor
 @Getter
 @Setter
 @Entity
-public class Book {
+public class Author {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private String title;
-    private String isbn;
-    private String publisher;
+    private String firstName;
+    private String lastName;
 
-
-    public Book(String title, String isbn, String publisher) {
-        this.title = title;
-        this.isbn = isbn;
-        this.publisher = publisher;
+    public Author(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
     }
 
     @Override
@@ -35,9 +32,9 @@ public class Book {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Book book = (Book) o;
+        Author author = (Author) o;
 
-        return Objects.equals(id, book.id);
+        return id != null ? id.equals(author.id) : author.id == null;
     }
 
     @Override
