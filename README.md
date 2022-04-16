@@ -1,5 +1,5 @@
 # Spring Data JPA - Introduction to Spring Data JPA
-Build statusȘ
+Build status:
 
 [![CircleCI](https://circleci.com/gh/nictbn/sdjpa-intro/tree/master.svg?style=svg)](https://circleci.com/gh/nictbn/sdjpa-intro/tree/master)
 
