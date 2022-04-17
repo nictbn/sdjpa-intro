@@ -1,6 +1,10 @@
 package guru.springframework.sdjpaintro;
 
+import guru.springframework.sdjpaintro.domain.AuthorUuid;
+import guru.springframework.sdjpaintro.domain.BookUuid;
+import guru.springframework.sdjpaintro.repositories.AuthorUuidRepository;
 import guru.springframework.sdjpaintro.repositories.BookRepository;
+import guru.springframework.sdjpaintro.repositories.BookUuidRepository;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +24,33 @@ public class MySQLIntegrationTest {
 
     @Autowired
     BookRepository bookRepository;
+
+    @Autowired
+    AuthorUuidRepository authorUuidRepository;
+
+    @Autowired
+    BookUuidRepository bookUuidRepository;
+
+    @Test
+    void testAuthorUuid() {
+        AuthorUuid authorUuid = authorUuidRepository.save(new AuthorUuid());
+        assertThat(authorUuid).isNotNull();
+        assertThat(authorUuid.getId()).isNotNull();
+
+        AuthorUuid fetched = authorUuidRepository.getById(authorUuid.getId());
+        assertThat(fetched).isNotNull();
+    }
+
+    @Test
+    void testBookUuid() {
+        BookUuid bookUuid = bookUuidRepository.save(new BookUuid());
+        assertThat(bookUuid).isNotNull();
+        assertThat(bookUuid.getId()).isNotNull();
+
+        BookUuid fetched = bookUuidRepository.getById(bookUuid.getId());
+        assertThat(fetched).isNotNull();
+    }
+
 
     @Test
     void testJpaTestSpliceTransaction() {
